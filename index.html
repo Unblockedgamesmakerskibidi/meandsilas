@@ -1,70 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Awesome website</title>
-    <link rel=stylesheet href="css/homepage.css">
-    </head>
-  <body>
-    <h1>me and silas collab page over summer</h1>
-    <p>Hugo will do html and css, silas will do html and javascript. Hugo will organize and make everything clean. Also hugo will fix any code that isnt working.</p>
-    <script>
-             function showMessage() {
-            alert("U have clicked the button. Now u will pay.");
-        }
-  let repeatCount = 0;
-  function addText(){
-    repeatCount++
-  }
-    </script>
-        <button onclick="showMessage()">Click Me</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Website</title>
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+<body>
+    <h1>Me and Silas Collab Page Over Summer</h1>
+    <p>Hugo will do HTML and CSS, Silas will do HTML and JavaScript. Hugo will organize and make everything clean. Also, Hugo will fix any code that isn’t working.</p>
+
+    <button onclick="showMessage()">Click Me</button>
+
     <h1>TheNewsBlues.com</h1>
     <p>Local Headlines</p>
-   <canvas id="myCanvas" width="500" height="350"></canvas>
-<script>
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var moveText = 110
-  ctx.font = "30px Arial";
-  ctx.fillStyle = "black";
-  ctx.fillText("School Getting Let Out!", 80, 75);
-  ctx.font = "15px Arial";
-  ctx.fillText("School ends May 30th!", 65, moveText);
-  ctx.fillText("Although there is still work to", 65, moveText + 20);
-  ctx.fillText("be done, it is getting less", 65, moveText + 40);
-  ctx.fillText("hard. Finish strong people!", 65, moveText + 60);
-</script>
-    <style>#myCanvas {
-    background-color: white;
-    position: absolute;
-    right: 775px;
-    top: 320px;
-}</style>
-  <div style="position: fixed; top: 20px; right: 20px;">
-  <input type="text" id="myInput" placeholder="Type here">
-  <button onclick="showAlert()">Alert Input</button>
-<script>
-function showAlert() {
-  var userInput = document.getElementById('myInput').value;
-  alert(userInput);
-}
-</script>
-</div>
-        <p id="text"></p>
+
+    <canvas id="myCanvas" width="500" height="350"></canvas>
+
+    <div style="position: fixed; top: 20px; right: 20px;">
+        <input type="text" id="myInput" placeholder="Type here">
+        <button onclick="updateText()">Alert Input & Update Text</button>
+    </div>
+
+    <p id="text"></p>
+    <div id="container"></div>
 
     <script>
-              let myText = userInput;
-        document.getElementById("text").textContent = myText;
-    </script>
-        <div id="container"></div>
+        function showMessage() {
+            alert("U have clicked the button. Now u will pay.");
+        }
 
-    <script>
+        function updateText() {
+            let userInput = document.getElementById("myInput").value;
+            let myText = userInput;
+
+            document.getElementById("text").textContent = myText;
+
+            container.innerHTML = "";
+            for (let i = 0; i < repeatCount; i++) {
+                let p = document.createElement("p");
+                p.textContent = myText;
+                container.appendChild(p);
+            }
+        }
+
+        // Set default repeat count
+        let repeatCount = 5;
         let container = document.getElementById("container");
 
-        for (let i = 0; i < repeatCount; i++) {
-            let p = document.createElement("p");
-            p.textContent = myText;
-            container.appendChild(p);
-        }
+        // Canvas drawing
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var moveText = 110;
+
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "black";
+        ctx.fillText("School Getting Let Out!", 80, 75);
+        ctx.font = "15px Arial";
+        ctx.fillText("School ends May 30th!", 65, moveText);
+        ctx.fillText("Although there is still work to", 65, moveText + 20);
+        ctx.fillText("be done, it is getting less", 65, moveText + 40);
+        ctx.fillText("hard. Finish strong people!", 65, moveText + 60);
     </script>
-  </body>
+  <p>This commit worked</p>
+</body>
 </html>
