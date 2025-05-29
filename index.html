@@ -11,6 +11,10 @@
              function showMessage() {
             alert("U have clicked the button. Now u will pay.");
         }
+  let repeatCount = 0;
+  function addText(){
+    repeatCount++
+  }
     </script>
         <button onclick="showMessage()">Click Me</button>
     <h1>TheNewsBlues.com</h1>
@@ -19,15 +23,15 @@
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-
+    var moveText = 110
   ctx.font = "30px Arial";
   ctx.fillStyle = "black";
   ctx.fillText("School Getting Let Out!", 80, 75);
   ctx.font = "15px Arial";
-  ctx.fillText("School ends May 30th!", 65, 110);
-  ctx.fillText("Although there is still work to", 65, 130);
-  ctx.fillText("be done, it is getting less", 65, 150);
-  ctx.fillText("hard. Finish strong people!", 65, 170);
+  ctx.fillText("School ends May 30th!", 65, moveText);
+  ctx.fillText("Although there is still work to", 65, moveText + 20);
+  ctx.fillText("be done, it is getting less", 65, moveText + 40);
+  ctx.fillText("hard. Finish strong people!", 65, moveText + 60);
 </script>
     <style>#myCanvas {
     background-color: white;
@@ -35,7 +39,7 @@
     right: 775px;
     top: 320px;
 }</style>
-            <div style="position: fixed; top: 20px; right: 20px;">
+  <div style="position: fixed; top: 20px; right: 20px;">
   <input type="text" id="myInput" placeholder="Type here">
   <button onclick="showAlert()">Alert Input</button>
 <script>
@@ -45,5 +49,22 @@ function showAlert() {
 }
 </script>
 </div>
+        <p id="text"></p>
+
+    <script>
+              let myText = userInput;
+        document.getElementById("text").textContent = myText;
+    </script>
+        <div id="container"></div>
+
+    <script>
+        let container = document.getElementById("container");
+
+        for (let i = 0; i < repeatCount; i++) {
+            let p = document.createElement("p");
+            p.textContent = myText;
+            container.appendChild(p);
+        }
+    </script>
   </body>
 </html>
