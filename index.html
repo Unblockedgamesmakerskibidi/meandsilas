@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awesome Website</title>
     <link rel="stylesheet" href="css/homepage.css">
 </head>
@@ -32,23 +30,29 @@
 
         function updateText() {
             let userInput = document.getElementById("myInput").value;
-            let myText = userInput;
 
-            document.getElementById("text").textContent = myText;
-
-            container.innerHTML = "";
-            for (let i = 0; i < repeatCount; i++) {
-                let p = document.createElement("p");
-                p.textContent = myText;
-                container.appendChild(p);
-            }
+            fetch("save.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "text=" + encodeURIComponent(userInput)
+            }).then(() => {
+                fetchText(); // Refresh displayed text
+            });
         }
 
-        // Set default repeat count
+        function fetchText() {
+            fetch("retrieve.php")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("text").textContent = data;
+                });
+        }
+
         let repeatCount = 5;
         let container = document.getElementById("container");
 
-        // Canvas drawing
+        fetchText();
+
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
         var moveText = 110;
@@ -62,6 +66,6 @@
         ctx.fillText("be done, it is getting less", 65, moveText + 40);
         ctx.fillText("hard. Finish strong people!", 65, moveText + 60);
     </script>
-  <p>This commit worked</p>
+
 </body>
 </html>
