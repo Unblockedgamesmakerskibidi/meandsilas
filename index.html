@@ -28,24 +28,21 @@
             alert("U have clicked the button. Now u will pay.");
         }
 
+        function getUserName(){
+            let username = document.getElementById("myUserName").value;
+            alert(username)
+        }
+
         function updateText() {
             let userInput = document.getElementById("myInput").value;
 
-            fetch("save.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: "text=" + encodeURIComponent(userInput)
-            }).then(() => {
-                fetchText(); // Refresh displayed text
-            });
+            localStorage.setItem("savedText", userInput);
+            fetchText();
         }
 
         function fetchText() {
-            fetch("retrieve.php")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("text").textContent = data;
-                });
+            let savedText = localStorage.getItem("savedText") || "Page";
+            document.getElementById("text").textContent = savedText;
         }
 
         let repeatCount = 5;
@@ -66,6 +63,7 @@
         ctx.fillText("be done, it is getting less", 65, moveText + 40);
         ctx.fillText("hard. Finish strong people!", 65, moveText + 60);
     </script>
-
+        <input type="text" id="myUserName" placeholder="Type here">
+        <button onclick="getUserName()">Create Account</button>
 </body>
 </html>
