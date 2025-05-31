@@ -3,18 +3,21 @@
 <head>
     <title>Awesome Website</title>
     <link rel="stylesheet" href="css/homepage.css">
+    <style>
+        p {
+            font-size: 100px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <h1>Me and Silas Collab Page Over Summer</h1>
     <p>Hugo will do HTML and CSS, Silas will do HTML and JavaScript. Hugo will organize and make everything clean. Also, Hugo will fix any code that isn’t working.</p>
 
     <button onclick="showMessage()">Click Me</button>
-    <style>
-        font = "150px Arial";
-    </style>
-    <p>MakeMeaSite.com</p>
-    <style>font = "100px Arial";</style>
-    <p>Create a Site When you Want it, How you Want it.</p>
+
+    <p style="font-size: 150px; font-family: Arial;">MakeMeaSite.com</p>
+    <p>Create a Site When You Want it, How You Want it.</p>
 
     <canvas id="myCanvas" width="500" height="350"></canvas>
 
@@ -28,17 +31,16 @@
 
     <script>
         function showMessage() {
-            alert("U have clicked the button. Now u will pay.");
+            alert("You have clicked the button. Now you will pay.");
         }
 
         function getUserName(){
             let username = document.getElementById("myUserName").value;
-            alert(username)
+            alert(username);
         }
 
         function updateText() {
             let userInput = document.getElementById("myInput").value;
-
             localStorage.setItem("savedText", userInput);
             fetchText();
         }
@@ -48,9 +50,6 @@
             document.getElementById("text").textContent = savedText;
         }
 
-        let repeatCount = 5;
-        let container = document.getElementById("container");
-
         fetchText();
 
         var canvas = document.getElementById("myCanvas");
@@ -59,14 +58,15 @@
 
         ctx.font = "30px Arial";
         ctx.fillStyle = "black";
-        ctx.fillText("Why use us?, 80, 75);
+        ctx.fillText("Why use us?", 80, 75);
         ctx.font = "15px Arial";
         ctx.fillText("We are experienced web designers", 65, moveText);
         ctx.fillText("We use many unique elements to design our sites", 65, moveText + 20);
         ctx.fillText("We work fast", 65, moveText + 40);
         ctx.fillText("Our products are clean and polished", 65, moveText + 60);
     </script>
-        <input type="text" id="myUserName" placeholder="Type here">
-        <button onclick="getUserName()">Create Account</button>
+
+    <input type="text" id="myUserName" placeholder="Type here">
+    <button onclick="getUserName()">Create Account</button>
 </body>
 </html>
