@@ -56,6 +56,7 @@
             canvas.width = 500;
             canvas.height = 300;
             canvas.style.border = "1px solid black";
+    
             document.body.appendChild(canvas);
             
             let ctxOne = canvas.getContext("2d");
@@ -98,6 +99,38 @@
                         canvas.width = newWidth;
                     } else {
                         alert("Please enter a valid number for width.");
+                    }
+                }      
+                let backgroundInput = document.createElement("input");
+                backgroundInput.type = "text";
+                backgroundInput.id = "backgroundInput";
+                backgroundInput.placeholder = "Enter Background Color"
+
+                let buttonBackgroundInput = document.createElement("button");
+                buttonBackgroundInput.innerText = "Set Background";
+                buttonBackgroundInput.onclick = enterBackground;
+                document.body.appendChild(buttonBackgroundInput);
+
+                function enterBackground() {
+                    let colorOfBG = document.getElementById("backgroundInput").value;
+                    let canvas = document.getElementById("canvas");
+
+                    if (colorOfBG === "white") {
+                        canvas.style.backgroundColor = "white";                    
+                    } else if (colorOfBG === "black") {
+                        canvas.style.backgroundColor = "black";                    
+                    } else if (colorOfBG === "red") {
+                        canvas.style.backgroundColor = "red";
+                    } else if (colorOfBG === "orange") {
+                        canvas.style.backgroundColor = "orange";
+                    } else if (colorOfBG === "yellow") {
+                        canvas.style.backgroundColor = "yellow";
+                    } else if (colorOfBG === "green") {
+                        canvas.style.backgroundColor = "green";
+                    } else if (colorOfBG === "blue") {
+                        canvas.style.backgroundColor = "blue";
+                    } else if (colorOfBG === "purple") {
+                        canvas.style.backgroundColor = "purple";
                     }
                 }
             }
