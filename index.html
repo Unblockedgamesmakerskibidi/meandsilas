@@ -78,6 +78,27 @@ function createBox() {
             if (!isNaN(newHeight)) {
                 canvas.height = newHeight;
             } else {
+                alert("Please enter a valid number for height.");
+            }
+        }
+
+        let widthInput = document.createElement("input");
+        widthInput.type = "text";
+        widthInput.id = "widthInput";
+        widthInput.placeholder = "Enter Width";
+        document.body.appendChild(widthInput);
+
+        let buttonWidthInput = document.createElement("button");
+        buttonWidthInput.innerText = "Set Width";
+        buttonWidthInput.onclick = enterWidth;
+        document.body.appendChild(buttonWidthInput);
+
+        function enterWidth() {
+            let newWidth = parseInt(document.getElementById("widthInput").value);
+            if (!isNaN(newWidth)) {
+                canvas.width = newWidth;
+            } else {
+                alert("Please enter a valid number for width.");
             }
         }
     }
@@ -85,7 +106,6 @@ function createBox() {
     showOptions();
 }
 
-createBox();
 
         fetchText();
 
