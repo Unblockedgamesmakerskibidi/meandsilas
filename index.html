@@ -51,11 +51,9 @@
         fetchText();
 
         let printDaText = localStorage.getItem("savedText") || "";
-        while("true"){
             localStorage.setItem("printDaText", printDaText)
             localStorage.getItem("printDaText")
             document.getElementById("textOne").textContent = printDaText;
-        }
 
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
