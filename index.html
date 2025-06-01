@@ -101,6 +101,7 @@
                         alert("Please enter a valid number for width.");
                     }
                 }      
+
                 let backgroundInput = document.createElement("input");
                 backgroundInput.type = "text";
                 backgroundInput.id = "backgroundInput";
@@ -109,34 +110,34 @@
 
                 let buttonBackgroundInput = document.createElement("button");
                 buttonBackgroundInput.innerText = "Set Background";
-                buttonBackgroundInput.onclick = enterBackground;
+                buttonBackgroundInput.onclick = function() { enterBackground(canvas); };
                 document.body.appendChild(buttonBackgroundInput);
-
-                function enterBackground() {
-                    let colorOfBG = document.getElementById("backgroundInput").value;
-                    let canvas = document.getElementById("canvas");
-
-                    if (colorOfBG === "white") {
-                        canvas.style.backgroundColor = "white";                    
-                    } else if (colorOfBG === "black") {
-                        canvas.style.backgroundColor = "black";                    
-                    } else if (colorOfBG === "red") {
-                        canvas.style.backgroundColor = "red";
-                    } else if (colorOfBG === "orange") {
-                        canvas.style.backgroundColor = "orange";
-                    } else if (colorOfBG === "yellow") {
-                        canvas.style.backgroundColor = "yellow";
-                    } else if (colorOfBG === "green") {
-                        canvas.style.backgroundColor = "green";
-                    } else if (colorOfBG === "blue") {
-                        canvas.style.backgroundColor = "blue";
-                    } else if (colorOfBG === "purple") {
-                        canvas.style.backgroundColor = "purple";
-                    }
-                }
             }
 
             showOptions();
+        }
+
+        function enterBackground(targetCanvas) {
+            let colorOfBG = document.getElementById("backgroundInput").value;
+            let canvas = targetCanvas || document.getElementById("myCanvas");
+
+            if (colorOfBG === "white") {
+                canvas.style.backgroundColor = "white";                    
+            } else if (colorOfBG === "black") {
+                canvas.style.backgroundColor = "black";                    
+            } else if (colorOfBG === "red") {
+                canvas.style.backgroundColor = "red";
+            } else if (colorOfBG === "orange") {
+                canvas.style.backgroundColor = "orange";
+            } else if (colorOfBG === "yellow") {
+                canvas.style.backgroundColor = "yellow";
+            } else if (colorOfBG === "green") {
+                canvas.style.backgroundColor = "green";
+            } else if (colorOfBG === "blue") {
+                canvas.style.backgroundColor = "blue";
+            } else if (colorOfBG === "purple") {
+                canvas.style.backgroundColor = "purple";
+            }
         }
 
         fetchText();
