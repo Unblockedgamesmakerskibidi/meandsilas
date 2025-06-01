@@ -28,6 +28,7 @@
     </div>
 
     <p id="text"></p>
+    <p id="textOne"></p>
     <div id="container"></div>
 
     <script>
@@ -44,10 +45,13 @@
 
         function fetchText() {
             let savedText = localStorage.getItem("savedText") || "";
+            let a = savedText
             document.getElementById("text").textContent = savedText;
+            document.getElementById("textOne").textContent = a;
         }
 
         fetchText();
+        
 
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
