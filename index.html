@@ -3,10 +3,12 @@
 <head>
     <title>Awesome Website</title>
     <link rel="stylesheet" href="css/homepage.css">
-        <style>
-        p {
-            font-size: 30px;
-            font-family: Arial, sans-serif;
+    <style>
+        #bottom-center-controls {
+            position: fixed;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -20,7 +22,7 @@
 
     <canvas id="myCanvas" width="500" height="350"></canvas>
 
-    <div style="position: fixed; top: 384px; right: 683px;">
+    <div id="bottom-center-controls">
         <input type="text" id="myInput" placeholder="Type here">
         <button onclick="updateText()">Alert Input & Update Text</button>
     </div>
