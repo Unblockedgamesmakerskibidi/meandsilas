@@ -16,7 +16,6 @@
     <h1>Me and Silas Collab Page Over Summer</h1>
     <p>Hugo will do HTML and CSS, Silas will do HTML and JavaScript. Hugo will organize and make everything clean. Also, Hugo will fix any code that isn’t working.</p>
 
-
     <p style="font-size: 150px; font-family: Arial;">MakeMeaSite.com</p>
     <p>Create a Site When You Want it, How You Want it.</p>
 
@@ -34,7 +33,7 @@
     <input type="text" id="myUserName" placeholder="Type here">
     <button onclick="getUserName()">Create Account</button>
     <button onclick="createBox()">Create Box</button>
-    
+
     <script>
         function getUserName(){
             let username = document.getElementById("myUserName").value;
@@ -52,80 +51,80 @@
             document.getElementById("text").textContent = savedText;
         }
 
-function createBox() {
-    let canvas = document.createElement("canvas");
-    canvas.width = 500;
-    canvas.height = 300;
-    canvas.style.border = "1px solid black";
-    document.body.appendChild(canvas);
-    
-    let ctxOne = canvas.getContext("2d");
+        function createBox() {
+            let canvas = document.createElement("canvas");
+            canvas.width = 500;
+            canvas.height = 300;
+            canvas.style.border = "1px solid black";
+            document.body.appendChild(canvas);
+            
+            let ctxOne = canvas.getContext("2d");
 
-    function showOptions() {
-        let heightInput = document.createElement("input");
-        heightInput.type = "text";
-        heightInput.id = "heightInput";
-        heightInput.placeholder = "Enter Height";
-        document.body.appendChild(heightInput);
+            function showOptions() {
+                let heightInput = document.createElement("input");
+                heightInput.type = "text";
+                heightInput.id = "heightInput";
+                heightInput.placeholder = "Enter Height";
+                document.body.appendChild(heightInput);
 
-        let buttonHeightInput = document.createElement("button");
-        buttonHeightInput.innerText = "Set Height";
-        buttonHeightInput.onclick = enterHeight;
-        document.body.appendChild(buttonHeightInput);
+                let buttonHeightInput = document.createElement("button");
+                buttonHeightInput.innerText = "Set Height";
+                buttonHeightInput.onclick = enterHeight;
+                document.body.appendChild(buttonHeightInput);
 
-        function enterHeight() {
-            let newHeight = parseInt(document.getElementById("heightInput").value);
-            if (!isNaN(newHeight)) {
-                canvas.height = newHeight;
-            } else {
-                alert("Please enter a valid number for height.");
+                function enterHeight() {
+                    let newHeight = parseInt(document.getElementById("heightInput").value);
+                    if (!isNaN(newHeight)) {
+                        canvas.height = newHeight;
+                    } else {
+                        alert("Please enter a valid number for height.");
+                    }
+                }
+
+                let widthInput = document.createElement("input");
+                widthInput.type = "text";
+                widthInput.id = "widthInput";
+                widthInput.placeholder = "Enter Width";
+                document.body.appendChild(widthInput);
+
+                let buttonWidthInput = document.createElement("button");
+                buttonWidthInput.innerText = "Set Width";
+                buttonWidthInput.onclick = enterWidth;
+                document.body.appendChild(buttonWidthInput);
+
+                function enterWidth() {
+                    let newWidth = parseInt(document.getElementById("widthInput").value);
+                    if (!isNaN(newWidth)) {
+                        canvas.width = newWidth;
+                    } else {
+                        alert("Please enter a valid number for width.");
+                    }
+                }
             }
+
+            showOptions();
         }
-
-        let widthInput = document.createElement("input");
-        widthInput.type = "text";
-        widthInput.id = "widthInput";
-        widthInput.placeholder = "Enter Width";
-        document.body.appendChild(widthInput);
-
-        let buttonWidthInput = document.createElement("button");
-        buttonWidthInput.innerText = "Set Width";
-        buttonWidthInput.onclick = enterWidth;
-        document.body.appendChild(buttonWidthInput);
-
-        function enterWidth() {
-            let newWidth = parseInt(document.getElementById("widthInput").value);
-            if (!isNaN(newWidth)) {
-                canvas.width = newWidth;
-            } else {
-                alert("Please enter a valid number for width.");
-            }
-        }
-    }
-
-    showOptions();
-}
-
 
         fetchText();
 
         let printDaText = localStorage.getItem("savedText") || "";
-            localStorage.setItem("printDaText", printDaText)
-            localStorage.getItem("printDaText")
-            document.getElementById("textOne").textContent = printDaText;
+        document.getElementById("textOne").textContent = printDaText;
 
-        var canvasOne = document.getElementById("myCanvas");
-        var ctx = canvasOne.getContext("2d");
-        var moveText = 110;
+        let canvasOne = document.getElementById("myCanvas");
+        let ctx = canvasOne.getContext("2d");
 
-        ctx.font = "30px Arial";
-        ctx.fillStyle = "black";
-        ctx.fillText("Why use us?", 80, 75);
-        ctx.font = "15px Arial";
-        ctx.fillText("We are experienced web designers", 65, moveText);
-        ctx.fillText("We use many unique elements to design our sites", 65, moveText + 20);
-        ctx.fillText("We work fast", 65, moveText + 40);
-        ctx.fillText("Our products are clean and polished", 65, moveText + 60);
+        if (ctx) {
+            ctx.font = "30px Arial";
+            ctx.fillStyle = "black";
+            ctx.fillText("Why use us?", 80, 75);
+            ctx.font = "15px Arial";
+
+            let moveText = 110;
+            ctx.fillText("We are experienced web designers", 65, moveText);
+            ctx.fillText("We use many unique elements to design our sites", 65, moveText + 20);
+            ctx.fillText("We work fast", 65, moveText + 40);
+            ctx.fillText("Our products are clean and polished", 65, moveText + 60);
+        }
     </script>
 </body>
 </html>
