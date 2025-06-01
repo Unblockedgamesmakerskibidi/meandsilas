@@ -31,6 +31,10 @@
     <p id="textOne"></p>
     <div id="container"></div>
 
+    <input type="text" id="myUserName" placeholder="Type here">
+    <button onclick="getUserName()">Create Account</button>
+    <button onclick="createBox()">Create Box</button>
+    
     <script>
         function getUserName(){
             let username = document.getElementById("myUserName").value;
@@ -48,6 +52,41 @@
             document.getElementById("text").textContent = savedText;
         }
 
+function createBox() {
+    let canvas = document.createElement("canvas");
+    canvas.width = 500;
+    canvas.height = 300;
+    canvas.style.border = "1px solid black";
+    document.body.appendChild(canvas);
+    
+    let ctxOne = canvas.getContext("2d");
+
+    function showOptions() {
+        let heightInput = document.createElement("input");
+        heightInput.type = "text";
+        heightInput.id = "heightInput";
+        heightInput.placeholder = "Enter Height";
+        document.body.appendChild(heightInput);
+
+        let buttonHeightInput = document.createElement("button");
+        buttonHeightInput.innerText = "Set Height";
+        buttonHeightInput.onclick = enterHeight;
+        document.body.appendChild(buttonHeightInput);
+
+        function enterHeight() {
+            let newHeight = parseInt(document.getElementById("heightInput").value);
+            if (!isNaN(newHeight)) {
+                canvas.height = newHeight;
+            } else {
+            }
+        }
+    }
+
+    showOptions();
+}
+
+createBox();
+
         fetchText();
 
         let printDaText = localStorage.getItem("savedText") || "";
@@ -55,8 +94,8 @@
             localStorage.getItem("printDaText")
             document.getElementById("textOne").textContent = printDaText;
 
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
+        var canvasOne = document.getElementById("myCanvas");
+        var ctx = canvasOne.getContext("2d");
         var moveText = 110;
 
         ctx.font = "30px Arial";
@@ -68,8 +107,5 @@
         ctx.fillText("We work fast", 65, moveText + 40);
         ctx.fillText("Our products are clean and polished", 65, moveText + 60);
     </script>
-
-    <input type="text" id="myUserName" placeholder="Type here">
-    <button onclick="getUserName()">Create Account</button>
 </body>
 </html>
